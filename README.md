@@ -6,19 +6,6 @@ Technologies Used
 
 Frontend: Dart (Flutter)
 Backend: JavaScript (Node.js)
-Project Structure
-
-chess-game
-├── lib
-│   ├── main.dart
-│   ├── views
-│   │   └── game_page.dart
-│   ├── controllers
-│   │   └── theme_provider.dart
-│   │   └── game_provider.dart
-├── server
-│   └── server.js
-└── README.md
 
 MVC Implementation
 
