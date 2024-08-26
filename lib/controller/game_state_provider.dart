@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class GameStateProvider with ChangeNotifier {
   List<String?> _board = List.filled(25, null);
-  String _currentPlayer = 'Player1';
+  String _currentPlayer = 'A';
   bool _gameOver = false;
   int? _selectedCharacterIndex;
   List<int> _validMoves = [];
@@ -66,22 +66,22 @@ class GameStateProvider with ChangeNotifier {
     }
   }
 
-  String switchPlayer() => _currentPlayer == 'Player1' ? 'Player2' : 'Player1';
+  String switchPlayer() => _currentPlayer == 'A' ? 'B' : 'A';
 
   void winningCondition() {
-    final left_p1 = _board.any((c) => c != null && c.startsWith('Player1'));
-    final left_p2 = _board.any((c) => c != null && c.startsWith('Player2'));
+    final left_p1 = _board.any((c) => c != null && c.startsWith('A'));
+    final left_p2 = _board.any((c) => c != null && c.startsWith('B'));
 
     if (!left_p1) {
       setGameOver(true);
 
       notifyListeners();
-      print('Player2 wins!');
+      print('B wins!');
 
     } else if (!left_p2) {
       setGameOver(true);
       notifyListeners();
-      print('Player1 wins!');
+      print('A wins!');
     }
   }
   List<int> calculateValidMoves(int index) {

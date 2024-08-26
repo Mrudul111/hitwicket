@@ -54,10 +54,12 @@ class _GamePageState extends State<GamePage> {
         top: false,
         left: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 5,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
             ),
             itemCount: 25,
             itemBuilder: (context, index) {
@@ -70,7 +72,7 @@ class _GamePageState extends State<GamePage> {
                   : (isValidMove && !isOwnCharacter)
                   ? Colors.redAccent
                   : cellContent != null
-                  ? (cellContent.startsWith('Player1') ? player1Color : player2Color)
+                  ? (cellContent.startsWith('A') ? player1Color : player2Color)
                   : Colors.white;
 
               return GestureDetector(
@@ -97,15 +99,24 @@ class _GamePageState extends State<GamePage> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 4,
+                        offset: Offset(2, 2),
+                      ),
+                    ],
+                    border: Border.all(color: Colors.black.withOpacity(0.3)),
                     color: cellColor,
                   ),
                   child: Center(
                     child: Text(
                       cellContent ?? '',
                       style: TextStyle(
-                        fontSize: 24,
-                        color: cellContent != null ? Colors.black : Colors.grey,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: cellContent != null ? Colors.black : Colors.grey[600],
                       ),
                     ),
                   ),
@@ -117,8 +128,12 @@ class _GamePageState extends State<GamePage> {
       )
           : Center(
         child: Text(
-          '${gameState.currentPlayer} Wins',
-          style: TextStyle(fontSize: 24),
+          '${gameState.currentPlayer} Wins!',
+          style: TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+            color: themeProvider.winTextColor,
+          ),
         ),
       ),
     );
