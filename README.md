@@ -2,6 +2,9 @@
 
 This repository contains the code for a chess game developed for Hit Wicket Company. The game adheres to the Model-View-Controller (MVC) architectural pattern for better organization and maintainability.
 
+# Installation Video
+https://drive.google.com/file/d/1glN1uRsdXsK8oFEiFpWsouowGrMiBwQq/view?usp=share_link
+
 # Technologies Used
 
 Frontend: Dart (Flutter)
@@ -42,3 +45,4 @@ Create a new branch for your feature or bug fix.  
 Make your changes and commit them.
 Push your changes to your fork.
 Create a pull request to the main branch of the original repository.   
+
